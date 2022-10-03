@@ -1,6 +1,6 @@
 # Roman Numerals
 
-## Part 0: Pseudocode!
+## Step 0: Pseudocode!
 
 We always want to encourage you to pseudocode your "gameplan" for any challenge before actually writing code. Note that we won't mention writing psuedocode all the time, but it's good practice to implement (especially for new coders) when tackling challenges. Here's an example of how one might pseudocode for this challenge (again, don't expect us to do this for you for all challenges!). Note that CAPITALIZED items in the pseucode are meant to be placeholders for items to implement, not actual style of methods/variables). 
 
@@ -17,7 +17,7 @@ We always want to encourage you to pseudocode your "gameplan" for any challenge 
 ```
 
 
-## Part 1: Lazy Roman Numerals
+## Step 1: Lazy Roman Numerals
 
 Given a number in today's numbers, (Arabic Numeral), return its equivalent in Roman Numerals in the lazy way. Lazy Roman Numerals is where Roman Numerals are added together (9 is `VIIII`, 4 is `IIII`). Here are Roman Numerals with their Arabic Numeral counterparts:
 
@@ -32,7 +32,7 @@ M -> 1000
 ```
 
 
-## Part 2: Modern Roman Numerals
+## Step 2: Modern Roman Numerals
 
 If a smaller number appears before a larger number, you must subtract the smaller one. Here's a list for you:
 
