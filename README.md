@@ -1,21 +1,44 @@
 # Roman Numerals
 
-## Step 0: Pseudocode!
+## Usage
 
-We always want to encourage you to pseudocode your "gameplan" for any challenge before actually writing code. Note that we won't mention writing psuedocode all the time, but it's good practice to implement (especially for new coders) when tackling challenges. Here's an example of how one might pseudocode for this challenge (again, don't expect us to do this for you for all challenges!). Note that CAPITALIZED items in the pseucode are meant to be placeholders for items to implement, not actual style of methods/variables). 
+To run `romanNumerals.js` itself:
 
-```Python
-# 1. Write a method TO_ROMAN, TO_ROMAN takes in INPUT_NUMBER (an arabic number)
-# 2. Create a OUTPUT string, set to ''
-# 3. Create a ROMAN_NUMERAL_TO_ARABIC_MAP that includes roman numerals as keys, arabic numbers as values
-# 4. Iterate over ROMAN_NUMERAL_TO_ARABIC_MAP, keep track of ROMAN_NUMERAL and ARABIC_NUMBER
-# 5. Set EVENLY_DIVISIBLE_TIMES = INPUT_NUMBER / ARABIC_NUMBER:
-# 6. If EVENLY_DIVISIBLE_TIMES >= 1
-  # 6a. Append ROMAN_NUMERAL to OUTPUT EVENLY_DIVISIBLE_TIMES
-  # 6b. Subtract ARABIC_NUMBER from INPUT_NUMBER EVENLY_DIVISIBLE_TIMES
-# 7. Return OUTPUT
+```sh
+npm start
+# alternatively: node romanNumerals.js
 ```
 
+To run `romanNumeralsSpec.js`:
+
+```sh
+npm test
+# alternatively: node romanNumeralsSpec.js
+```
+
+## Assignment
+
+### Step 0: Pseudocode
+
+We want to encourage you to pseudocode your "gameplan" for any challenge before actually coding. Note that we won't mention writing psuedocode all the time, but it's good practice to implement (especially for new coders) when tackling challenges. Here's an example of how one might pseudocode this challenge (again, don't expect us to do this for you for all challenges!).
+
+1. Write a function `toRomanLazy` that takes in a single input, `num`(an arabic number). Note: this step has already been done for you.
+
+2. Create a variable `output` and set it's initial value to the empty string (`""`)
+
+3. Create a variable `romanNumeralToArabic` that holds an object mapping the key of a roman numeral (`V`) to it's arabic equivalent (`5`)
+
+4. Create a variable `romanNumeralPriorityOrder` that holds an array with the roman numerals in descending order (`['M', 'D', 'C' ...]`)
+
+5. Iterate through `romanNumeralPriorityOrder`
+
+6. Use division and `Math.floor` to find out how many times a given `num` can be divided by the arabic equivalent of the current romanNumeral being iterated through. Append this many of the given romanNumeral to the `output`
+
+7. Subtract `num` by that number so only the remaining portion that couldn't be divided is left.
+
+8. Continue iterating until `num === 0`
+
+9. return `output`
 
 ## Step 1: Lazy Roman Numerals
 
@@ -31,27 +54,30 @@ D -> 500
 M -> 1000
 ```
 
+```js
+toRomanLazy(4); // 'IIII'
+toRomanLazy(150); // 'CL'
+toRomanLazy(944); // 'DCCCCXXXXIIII'
+```
 
 ## Step 2: Modern Roman Numerals
 
-If a smaller number appears before a larger number, you must subtract the smaller one. Here's a list for you:
+Modify the code in Step 1 to do real roman numeral. Real roman numerals also includes special characters to represent 4, 9, 40, 400, 900 etc:
 
 ```
 IV -> 4
 IX -> 9
-XIV -> 14
-XLIV -> 44
-CMXLIV -> 944
+XL -> 40
+CD -> 400
+CM -> 900
 ```
 
 ### Sample output:
+
+```js
+toRoman(4); // 'IV'
+toRoman(150); // 'CL'
+toRoman(944); // 'CMXLIV'
 ```
-to_roman(4) # 'IV'
-to_roman(944) # 'CMXLIV'
-to_roman(150) # CL
-```
 
-### Hint: Consider the data structure(s) that can be used to store numerical values, and how it can relate to string representations. Break the problem down... how many combinations are there really to consider?
-
-
-#### DO NOT concern yourself with very large numbers. Your algorithm should keep appending 'M' for each thousand. (Numbers over 3000 have different numerical representations)
+> Note: DO NOT concern yourself with very large numbers. Your algorithm should keep appending 'M' for each thousand. (Numbers over 3000 have different numerical representations)

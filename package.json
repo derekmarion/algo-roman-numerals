@@ -1,0 +1,10 @@
+{
+  "name": "algo-roman-numerals",
+  "version": "1.0.0",
+  "main": "romanNumerals.js",
+  "type": "module",
+  "scripts": {
+    "start": "node romanNumerals.js",
+    "test": "node romanNumeralsSpec.js"
+  }
+}
