@@ -1,7 +1,9 @@
-export function toRomanLazy(num) {
+function toRomanLazy(num) {
   return "";
 }
 
-export function toRoman(num) {
+function toRoman(num) {
   return "";
 }
+
+module.exports = { toRoman, toRomanLazy };

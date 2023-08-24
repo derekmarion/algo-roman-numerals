@@ -1,4 +1,4 @@
-import { toRomanLazy, toRoman } from "./romanNumerals.js";
+const { toRomanLazy, toRoman } = require("./romanNumerals.js");
 
 console.log(toRomanLazy(4) === "IIII");
 console.log(toRomanLazy(150) === "CL");
